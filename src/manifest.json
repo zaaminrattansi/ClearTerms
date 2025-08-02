@@ -1,0 +1,30 @@
+{
+  "manifest_version": 3,
+  "name": "ClearTerms: ToS & Privacy Policy Summarizer",
+  "version": "0.1.0",
+  "description": "Summarizes Terms of Service and Privacy Policies in plain English, highlighting risky clauses.",
+  "icons": {
+    "128": "icon.png"
+  },
+  "permissions": [
+    "scripting",
+    "activeTab",
+    "storage"
+  ],
+  "background": {
+    "service_worker": "background/background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content/contentScript.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "action": {
+    "default_icon": "icon.png"
+  }
+}
